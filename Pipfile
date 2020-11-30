@@ -17,6 +17,6 @@ gunicorn = "~=20.0.4"
 python_version = "3.8"
 
 [scripts]
-start = "python manage.py runserver"
+start = "python manage.py start"
 lint = "pre-commit run --all-files"
 precommit = "pre-commit install"
