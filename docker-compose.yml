@@ -18,8 +18,8 @@ services:
 
   postgres:
     image: postgres:12
-    expose:
-      - 5432
+    ports:
+      - 5432:5432
     environment:
       POSTGRES_DB: fbla_quiz
       POSTGRES_USER: fbla_quiz
