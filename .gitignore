@@ -130,3 +130,6 @@ dmypy.json
 # Databases
 *.sqlite3
 postgres_data/
+
+# Static files
+static/
