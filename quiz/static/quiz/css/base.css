@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.navbar {
+  font-weight: 700;
+}
+
+.navbar-nav li {
+  padding-right: 1rem;
+}
+
+.navbar-nav li a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+}
+
+.navbar-nav li a:hover {
+  color: #3785c4;
+}
+
+.navbar-button {
+  background: #3785c4;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+.navbar-button:hover {
+  color: black!important;
+}
