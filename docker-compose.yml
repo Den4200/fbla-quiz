@@ -9,12 +9,11 @@ services:
     environment:
       DATABASE_URL: postgres://fbla_quiz:fbla_quiz@postgres:5432/fbla_quiz
       SECRET_KEY: not-suitable-for-production
-      DEBUG: 1
+      DEBUG: 0
     depends_on:
       - postgres
     volumes:
-      - ./:/app/:ro
-      - ./static/:/app/static/
+      - ./:/app/
 
   postgres:
     image: postgres:12
@@ -29,4 +28,4 @@ services:
 
 volumes:
   postgres_data:
-  static:
+  staticfiles:

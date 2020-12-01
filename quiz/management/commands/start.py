@@ -22,6 +22,8 @@ class Command(BaseCommand):
         self.wait_for_db()
         self.migrate_db()
 
+        call_command('collectstatic', interactive=False, clear=True)
+
         if int(os.environ.get('DEBUG', False)):
             call_command('runserver', '127.0.0.1:8000')
         else:

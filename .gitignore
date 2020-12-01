@@ -132,4 +132,4 @@ dmypy.json
 postgres_data/
 
 # Static files
-static/
+staticfiles/
