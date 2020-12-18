@@ -8,7 +8,21 @@ from quiz.models import (
 )
 
 
-admin.site.register(ChoiceQuizEntry)
-admin.site.register(MultipleChoiceQuizEntry)
-admin.site.register(ShortAnswerQuizEntry)
-admin.site.register(TrueFalseQuizEntry)
+@admin.register(ChoiceQuizEntry)
+class ChoiceQuizEntryAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'question', 'answer', 'answer_choices')
+
+
+@admin.register(MultipleChoiceQuizEntry)
+class MultipleChoiceQuizEntryAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'question', 'answer', 'answer_choices')
+
+
+@admin.register(ShortAnswerQuizEntry)
+class ShortAnswerQuizEntryAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'question', 'answer')
+
+
+@admin.register(TrueFalseQuizEntry)
+class TrueFalseQuizEntryAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'question', 'answer')
