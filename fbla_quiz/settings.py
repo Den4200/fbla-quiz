@@ -31,6 +31,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = [
+    'fbla-quiz.dennispham.me',
     '127.0.0.1',
     'localhost'
 ]
