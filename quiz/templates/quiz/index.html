@@ -1,5 +1,16 @@
 {% extends "quiz/base.html" %}
 
+{% load static %}
+
+{% block head %}
+
+<link rel="stylesheet" href="{% static 'quiz/css/index.css' %}">
+
+{% endblock %}
+
 {% block body %}
-<h2>{{ entry_count }} questions available!</h2>
+<div class="container">
+    <img class="fbla-pbl"" src="https://www.fbla-pbl.org/media/FBLA-PBL-Full-Color-web.jpg" alt="FBLA-PBL">
+    <h1 class="d-flex justify-content-center sub-header"><i>Quiz</i></h1>
+</div>
 {% endblock %}

@@ -1,0 +1,23 @@
+.fbla-pbl {
+  width: 60%;
+  margin: auto;
+  display: block;
+  margin-bottom: 1em;
+}
+
+.sub-header {
+  color: #00529c;
+  font-weight: 700;
+  font-size: 6em;
+  margin-left: 1.5em;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  margin-left: -3em;
+  min-width: 100vw;
+}
