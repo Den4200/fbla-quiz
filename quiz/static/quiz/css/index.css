@@ -8,7 +8,7 @@
 .sub-header {
   color: #00529c;
   font-weight: 700;
-  font-size: 6em;
+  font-size: 6rem;
   margin-left: 1.5em;
 }
 
@@ -20,4 +20,16 @@
   transform: translateY(-50%);
   margin-left: -3em;
   min-width: 100vw;
+}
+
+@media only screen and (max-device-width: 1000px) {
+  .sub-header {
+    font-size: 200%;
+    font-weight: 500;
+    margin-left: 1em;
+  }
+
+  .container {
+    margin-left: -1em;
+  }
 }
