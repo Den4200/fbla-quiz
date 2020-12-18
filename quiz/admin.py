@@ -10,19 +10,19 @@ from quiz.models import (
 
 @admin.register(ChoiceQuizEntry)
 class ChoiceQuizEntryAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'question', 'answer', 'answer_choices')
+    list_display = ('question', 'answer', 'answer_choices')
 
 
 @admin.register(MultipleChoiceQuizEntry)
 class MultipleChoiceQuizEntryAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'question', 'answer', 'answer_choices')
+    list_display = ('question', 'answer', 'answer_choices')
 
 
 @admin.register(ShortAnswerQuizEntry)
 class ShortAnswerQuizEntryAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'question', 'answer')
+    list_display = ('question', 'answer')
 
 
 @admin.register(TrueFalseQuizEntry)
 class TrueFalseQuizEntryAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'question', 'answer')
+    list_display = ('question', 'answer')
