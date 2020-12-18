@@ -2,13 +2,6 @@
 
 {% load crispy_forms_tags %}
 
-{% block head %}
-
-{% load static %}
-<link rel="stylesheet" href="{% static 'quiz/css/entries.css' %}">
-
-{% endblock %}
-
 {% block body %}
 
 <hr>
@@ -37,7 +30,7 @@
     <hr>
 {% endfor %}
 
-<input id="submit" type="button" value="Submit" onClick="submitAnswers();">
+<input id="submit" class="mb-3" type="button" value="Submit" onClick="submitAnswers();">
 
 {% endblock %}
 
