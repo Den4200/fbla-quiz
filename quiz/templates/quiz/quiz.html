@@ -1,0 +1,90 @@
+{% extends "quiz/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'quiz/css/entries.css' %}">
+
+{% endblock %}
+
+{% block body %}
+
+<hr>
+
+{% for entry, form in entries %}
+    <div>
+        {% for message in messages %}
+            {% if entry.id in message.tags %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <form id="question-{{ entry.id_ }}" action=".", method="POST" onkeydown="return event.key != 'Enter';">
+            {% csrf_token %}
+
+            <h3>{{ forloop.counter }}. {{ entry.question }}</h3>
+            <i>{{ entry.type }}</i>
+
+            {{ form|crispy }}
+            
+            <input type="hidden" name="entry_id" value="{{ entry.id_ }}">
+        </form>
+    </div>
+    <hr>
+{% endfor %}
+
+<input id="submit" type="button" value="Submit" onClick="submitAnswers();">
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+    $.ajaxSetup({
+        headers: { "X-CSRFToken": "{{ csrf_token }}" }
+    });
+
+    function submitAnswers() {
+        $('#submit').remove();
+
+        $('main').prepend('<br><div><strong>Score:</strong> <span id="score">0 / 5</span><div>');
+
+        $('form').each(function() {
+            $.post(
+                $(this).action,
+                $(this).serialize(),
+                function(data) {
+                    update_messages(data.messages);
+                }
+            );
+        });
+
+        $('input').prop('disabled', true);
+    }
+
+    function update_messages(messages) {
+        $.each(messages, function (idx, msg) {
+            for (form of document.forms) {
+                var id = $(form).attr('id');
+
+                if (msg.tags[0] === id.slice(-1)) {
+                    var status = msg.tags.split(' ')[1]
+
+                    $(`#${id}`).parent().prepend(
+                        `<div class="alert alert-${status}">${msg.message}</div>`
+                    );
+
+                    if (status === 'success') {
+                        $('#score').text(`${parseInt($('#score').text()[0]) + 1} / 5`);
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+{% endblock %}
