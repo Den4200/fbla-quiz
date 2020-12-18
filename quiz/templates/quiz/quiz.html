@@ -37,10 +37,6 @@
 {% block scripts %}
 
 <script>
-    $.ajaxSetup({
-        headers: { "X-CSRFToken": "{{ csrf_token }}" }
-    });
-
     function submitAnswers() {
         $('#submit').remove();
 
