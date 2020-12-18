@@ -2,6 +2,13 @@
 
 {% load crispy_forms_tags %}
 
+{% block head %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'quiz/css/print.css' %}">
+
+{% endblock %}
+
 {% block body %}
 
 <hr>
@@ -39,7 +46,16 @@
     function submitAnswers() {
         $('#submit').remove();
 
-        $('main').prepend('<br><div><strong>Score:</strong> <span id="score">0 / 5</span><div>');
+        $('main').prepend(`
+            <br>
+            <div>
+                <strong>Score:</strong> <span id="score">0 / 5</span>
+                <button id="print" style="float: right;" onClick="window.print()">
+                    <img src="{% static 'quiz/img/print.png' %}" alt="Print" style="width: 20px;">
+                </button>
+            <div>
+        `);
+
 
         $('form').each(function() {
             $.post(
