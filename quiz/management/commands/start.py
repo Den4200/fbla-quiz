@@ -22,6 +22,7 @@ class Command(BaseCommand):
         self.wait_for_db()
         self.migrate_db()
 
+        call_command('loaddata', 'initial')
         call_command('collectstatic', interactive=False, clear=True)
 
         if int(os.environ.get('DEBUG', False)):
