@@ -63,7 +63,7 @@
                 $(this).action,
                 $(this).serialize(),
                 function(data) {
-                    update_messages(data.messages);
+                    updateMessages(data.messages);
                 }
             );
         });
@@ -71,7 +71,7 @@
         $('input').prop('disabled', true);
     }
 
-    function update_messages(messages) {
+    function updateMessages(messages) {
         $.each(messages, function (idx, msg) {
             for (form of document.forms) {
                 var id = $(form).attr('id');
